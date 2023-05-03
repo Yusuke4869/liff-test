@@ -34,7 +34,12 @@
     "node": "18.16.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.8",
+    "@emotion/server": "^11.10.0",
     "@line/liff": "^2.22.0",
+    "@mantine/core": "^6.0.10",
+    "@mantine/hooks": "^6.0.10",
+    "@mantine/next": "^6.0.10",
     "destyle.css": "4.0.0",
     "next": "13.3.4",
     "react": "18.2.0",
