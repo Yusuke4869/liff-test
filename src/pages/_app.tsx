@@ -1,6 +1,7 @@
 import type { Liff } from "@line/liff/exports";
-import "destyle.css";
+import { MantineProvider } from "@mantine/core";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import "~/styles/global.scss";
 
@@ -30,8 +31,13 @@ const MyApp = ({ Component, pageProps, router: routerProp }: AppProps): JSX.Elem
   pageProps.liffError = liffError;
   return (
     <>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      <Component {...pageProps} key={routerProp.asPath} />
+      <Head>
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+      </Head>
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        <Component {...pageProps} key={routerProp.asPath} />
+      </MantineProvider>
     </>
   );
 };

@@ -1,19 +1,28 @@
 import type { Liff } from "@line/liff/exports";
+import { Center, Code, Text, Title } from "@mantine/core";
 import type { NextPage } from "next";
 import Layout from "~/components/layout";
 
 // eslint-disable-next-line react/prop-types
 const Home: NextPage<{ liff: Liff | null; liffError: string | null }> = ({ liff, liffError }) => (
   <Layout>
-    <h1>Hello World!</h1>
-    <p>This is a test app with liff.</p>
-    {liff && <p>LIFF init succeeded.</p>}
+    <Center>
+      <Title order={1}>Hello World!</Title>
+    </Center>
+    <Center>
+      <Text>This is a test app with liff.</Text>
+    </Center>
+    <Center>{liff && <Text>LIFF init succeeded.</Text>}</Center>
     {liffError && (
       <>
-        <p>LIFF init failed.</p>
-        <p>
-          <code>{liffError}</code>
-        </p>
+        <Center>
+          <Text>LIFF init failed.</Text>
+        </Center>
+        <Center>
+          <Text>
+            <Code>{liffError}</Code>
+          </Text>
+        </Center>
       </>
     )}
   </Layout>
