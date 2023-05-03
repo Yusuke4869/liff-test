@@ -18,6 +18,9 @@ const MyApp = ({ Component, pageProps, router: routerProp }: AppProps): JSX.Elem
           .init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID || "" })
           .then(() => {
             setLiffObject(liff);
+            if (!liff.isLoggedIn()) {
+              liff.login();
+            }
           })
           .catch((error: Error) => {
             setLiffError(error.toString());
